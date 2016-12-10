@@ -7,7 +7,6 @@ import language.higherKinds
 
 //http://typelevel.org/cats/datatypes/kleisli.html
 //Kleisli[F[_], A, B] is just a wrapper around the function A => F[B]
-
 object Catnip {
   implicit class IdOp[A](val a: A) extends AnyVal {
     def some: Option[A] = Some(a)
@@ -34,13 +33,13 @@ object KleisliMonadApp extends App {
     t <- ask[M, String]
   } yield (s ++ t).length
 
-  //  println(foo[Id].run("foo"))
   println(foo[Option].run("foo"))
   println(foo[List].run("foo"))
+  println("End!")
 }
 
 object KleisliConfigApp extends App {
-  // Kleisli could help to build from config to an App
+  // Kleisli could help to build from config to an App:q
   case class DbConfig(url: String, user: String, pass: String)
   trait Db
   object Db {
@@ -75,6 +74,5 @@ object KleisliConfigApp extends App {
   val app = appFromAppConfig.run(AppConfig(DbConfig("db", "", ""), ServiceConfig("service", 9000)))
 
   println(app)
-
 }
 
