@@ -1,4 +1,10 @@
+
 scalaVersion := "2.11.8"
+
+
+resolvers += Resolver.sonatypeRepo("releases")
+
+addCompilerPlugin("org.spire-math" %% "kind-projector" % "0.9.3")
 
 libraryDependencies ++= Seq(
   "org.typelevel" %% "cats" % "0.8.1"
@@ -23,7 +29,6 @@ scalacOptions ++= Seq(
     "-Xfuture"//,
 //    "-Ypartial-unification"
   ) ++ unusedWarnings
-
 lazy val unusedWarnings = Seq(
     "-Ywarn-unused",
     "-Ywarn-unused-import"
