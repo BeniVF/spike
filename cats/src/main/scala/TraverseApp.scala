@@ -1,4 +1,3 @@
-import scala.language.higherKinds
 import cats.Applicative
 import cats.implicits._
 import cats.Id
@@ -18,7 +17,7 @@ object TraverseApp extends App {
   def map[A, B](as: List[A])(f: A => B): List[B] =
     traverse[Id, A, B](as)(a => f(a))
 
-  def foldMap[A, B: Monoid](as: List[A])(f: A => B): B =
+ def foldMap[A, B: Monoid](as: List[A])(f: A => B): B =
     traverse(as)(a => Const[B, B](f(a))).getConst
 
   println(traverse(List(1, 2, 3, 4))(a => Option(a)))
@@ -26,5 +25,4 @@ object TraverseApp extends App {
   println(foldMap(List(4, 3, 5))(a => a * 10))
 
 }
-
 

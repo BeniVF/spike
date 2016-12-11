@@ -7,7 +7,9 @@ resolvers += Resolver.sonatypeRepo("releases")
 addCompilerPlugin("org.spire-math" %% "kind-projector" % "0.9.3")
 
 libraryDependencies ++= Seq(
-  "org.typelevel" %% "cats" % "0.8.1"
+  "org.typelevel" %% "cats" % "0.8.1",
+  "co.fs2" %% "fs2-core" % "0.9.2",
+  "co.fs2" %% "fs2-cats" % "0.2.0"
 )
 
 scalacOptions ++= Seq(
