@@ -28,7 +28,7 @@ object CalcApp extends App {
   }
 
   println(program(IdCalc))
-  println(program(Serializer))
+  println(program(Serializer).getConst)
 }
 
 

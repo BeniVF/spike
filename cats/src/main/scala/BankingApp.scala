@@ -205,6 +205,5 @@ object BankingApp extends App {
 
   task.unsafeRun()
 
-  
 }
 
